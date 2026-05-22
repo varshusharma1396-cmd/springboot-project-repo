@@ -1,0 +1,266 @@
+{
+  "info": {
+    "_postman_id": "8c7d01e8-6a2b-4935-9a68-a25a33fd3f2d",
+    "name": "Device API - Practical Test",
+    "description": "Collection for testing Device API endpoints with bearer token auth.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "1) Echo - 200",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "const body = pm.response.json();",
+              "pm.test('DeviceId matches input', function () {",
+              "  pm.expect(body.DeviceId).to.eql(pm.environment.get('DeviceId'));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RecordType\": \"{{RecordType}}\",\n  \"DeviceId\": \"{{DeviceId}}\",\n  \"EventDateTime\": \"{{EventDateTime}}\",\n  \"FieldA\": {{FieldA}},\n  \"FieldB\": \"{{FieldB}}\",\n  \"FieldC\": {{FieldC}}\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/echo",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "echo"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2) Device - 200 (Only DeviceId)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "const body = pm.response.json();",
+              "pm.test('Only DeviceId is present', function () {",
+              "  pm.expect(Object.keys(body)).to.have.length(1);",
+              "  pm.expect(body.DeviceId).to.eql(pm.environment.get('DeviceId'));",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RecordType\": \"{{RecordType}}\",\n  \"DeviceId\": \"{{DeviceId}}\",\n  \"EventDateTime\": \"{{EventDateTime}}\",\n  \"FieldA\": {{FieldA}},\n  \"FieldB\": \"{{FieldB}}\",\n  \"FieldC\": {{FieldC}}\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/device",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "device"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "3) NoContent - 204",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 204', function () {",
+              "  pm.response.to.have.status(204);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RecordType\": \"{{RecordType}}\",\n  \"DeviceId\": \"{{DeviceId}}\",\n  \"EventDateTime\": \"{{EventDateTime}}\",\n  \"FieldA\": {{FieldA}},\n  \"FieldB\": \"{{FieldB}}\",\n  \"FieldC\": {{FieldC}}\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/nocontent",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "nocontent"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "4) Unsupported Path - 400",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 400', function () {",
+              "  pm.response.to.have.status(400);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RecordType\": \"{{RecordType}}\",\n  \"DeviceId\": \"{{DeviceId}}\",\n  \"EventDateTime\": \"{{EventDateTime}}\",\n  \"FieldA\": {{FieldA}},\n  \"FieldB\": \"{{FieldB}}\",\n  \"FieldC\": {{FieldC}}\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/{{unsupportedPath}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "{{unsupportedPath}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5) Unauthorized - 401 (No Token)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 401', function () {",
+              "  pm.response.to.have.status(401);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"RecordType\": \"{{RecordType}}\",\n  \"DeviceId\": \"{{DeviceId}}\",\n  \"EventDateTime\": \"{{EventDateTime}}\",\n  \"FieldA\": {{FieldA}},\n  \"FieldB\": \"{{FieldB}}\",\n  \"FieldC\": {{FieldC}}\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/echo",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "echo"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6) Validation Error - 400",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('Status is 400', function () {",
+              "  pm.response.to.have.status(400);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"DeviceId\": \"{{DeviceId}}\",\n  \"EventDateTime\": \"{{EventDateTime}}\",\n  \"FieldA\": {{FieldA}},\n  \"FieldB\": \"{{FieldB}}\",\n  \"FieldC\": {{FieldC}}\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/echo",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "echo"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.varsha:device-api >------------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:4.0.6:run (default-cli) > test-compile @ device-api >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ device-api ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ device-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ device-api ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ device-api ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] <<< spring-boot:4.0.6:run (default-cli) < test-compile @ device-api <<<
+[INFO] 
+[INFO] 
+[INFO] --- spring-boot:4.0.6:run (default-cli) @ device-api ---
+[INFO] Attaching agents: []
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.6)
+
+2026-05-22 18:16:25.587 INFO  [main] c.v.device_api.DeviceApiApplication - Starting DeviceApiApplication using Java 25.0.1 with PID 6140 (C:\Users\sharm\Downloads\device-api\device-api\target\classes started by sharm in C:\Users\sharm\Downloads\device-api\device-api)
+2026-05-22 18:16:25.592 INFO  [main] c.v.device_api.DeviceApiApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-22 18:16:26.391 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-22 18:16:26.452 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 45 ms. Found 2 JPA repository interfaces.
+2026-05-22 18:16:26.954 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-22 18:16:26.966 INFO  [main] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-22 18:16:26.967 INFO  [main] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-22 18:16:27.026 INFO  [main] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1333 ms
+2026-05-22 18:16:27.135 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-22 18:16:27.174 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-22 18:16:27.550 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-22 18:16:27.579 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-22 18:16:27.726 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1da53f4f
+2026-05-22 18:16:27.728 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-22 18:16:27.806 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/device_api?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 9.6
+	Default catalog/schema: device_api/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-22 18:16:28.467 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-22 18:16:28.521 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-22 18:16:28.562 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-22 18:16:28.769 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-22 18:16:28.849 WARN  [main] o.s.b.s.a.UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: 9e1126cc-143d-47cd-b794-a4f6f68ef3fb
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-05-22 18:16:28.856 INFO  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-05-22 18:16:29.197 INFO  [main] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-22 18:16:29.202 INFO  [main] c.v.device_api.DeviceApiApplication - Started DeviceApiApplication in 4.084 seconds (process running for 4.46)
+2026-05-22 18:16:47.633 INFO  [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-22 18:16:47.634 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-22 18:16:47.636 INFO  [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-22 18:16:47.665 INFO  [http-nio-8080-exec-1] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/echo
+2026-05-22 18:16:47.665 WARN  [http-nio-8080-exec-2] c.v.d.security.TokenAuthFilter - Unauthorized request: method=POST, path=/echo, reason=missing_or_malformed_header
+2026-05-22 18:16:47.665 INFO  [http-nio-8080-exec-3] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/echo
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 18:16:47.837 INFO  [http-nio-8080-exec-2] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=401, authorized=false, durationMs=177
+2026-05-22 18:16:47.858 WARN  [http-nio-8080-exec-3] o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('\' (code 92)): was expecting double-quote to start property name]
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 18:16:47.870 INFO  [http-nio-8080-exec-3] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=400, authorized=true, durationMs=210
+2026-05-22 18:16:47.922 INFO  [http-nio-8080-exec-1] c.v.device_api.api.DeviceController - Received device payload: method=POST, path=/echo, deviceId=357370040159770, recordType=xxx
+Hibernate: 
+    insert 
+    into
+        device_events
+        (device_id, event_date_time, fielda, fieldb, fieldc, received_at, record_type, request_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-22 18:16:47.940 INFO  [http-nio-8080-exec-1] c.v.device_api.api.DeviceController - Payload persisted for deviceId=357370040159770 at path=/echo
+2026-05-22 18:16:47.940 INFO  [http-nio-8080-exec-1] c.v.device_api.api.DeviceController - Responding 200 echo for path=/echo
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 18:16:47.976 INFO  [http-nio-8080-exec-1] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=200, authorized=true, durationMs=316
+2026-05-22 18:17:05.093 INFO  [http-nio-8080-exec-6] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/echo
+2026-05-22 18:17:05.121 WARN  [http-nio-8080-exec-6] c.v.d.api.GlobalExceptionHandler - Validation failed: errors={recordType=must not be blank}
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 18:17:05.133 INFO  [http-nio-8080-exec-6] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=400, authorized=true, durationMs=40
