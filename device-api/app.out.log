@@ -125,3 +125,192 @@ Hibernate:
     values
         (?, ?, ?, ?, ?, ?)
 2026-05-22 18:17:05.133 INFO  [http-nio-8080-exec-6] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=400, authorized=true, durationMs=40
+2026-05-22 19:04:16.998 INFO  [http-nio-8080-exec-8] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/echo
+2026-05-22 19:04:17.190 INFO  [http-nio-8080-exec-8] c.v.device_api.api.DeviceController - Received device payload: method=POST, path=/echo, deviceId=357370040159770, recordType=xxx
+Hibernate: 
+    insert 
+    into
+        device_events
+        (device_id, event_date_time, fielda, fieldb, fieldc, received_at, record_type, request_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-22 19:04:17.423 INFO  [http-nio-8080-exec-8] c.v.device_api.api.DeviceController - Payload persisted for deviceId=357370040159770 at path=/echo
+2026-05-22 19:04:17.427 INFO  [http-nio-8080-exec-8] c.v.device_api.api.DeviceController - Responding 200 echo for path=/echo
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:04:17.495 INFO  [http-nio-8080-exec-8] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=200, authorized=true, durationMs=497
+2026-05-22 19:06:23.375 INFO  [http-nio-8080-exec-2] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/echo
+2026-05-22 19:06:23.409 WARN  [http-nio-8080-exec-2] c.v.d.api.GlobalExceptionHandler - Validation failed: errors={recordType=must not be blank}
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:06:23.422 INFO  [http-nio-8080-exec-2] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=400, authorized=true, durationMs=47
+2026-05-22 19:07:52.250 INFO  [http-nio-8080-exec-3] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/device
+2026-05-22 19:07:52.253 WARN  [http-nio-8080-exec-3] c.v.d.api.GlobalExceptionHandler - Validation failed: errors={recordType=must not be blank}
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:07:52.262 INFO  [http-nio-8080-exec-3] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/device, status=400, authorized=true, durationMs=12
+2026-05-22 19:08:14.932 INFO  [http-nio-8080-exec-5] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/device
+2026-05-22 19:08:14.935 INFO  [http-nio-8080-exec-5] c.v.device_api.api.DeviceController - Received device payload: method=POST, path=/device, deviceId=357370040159770, recordType=xxx
+Hibernate: 
+    insert 
+    into
+        device_events
+        (device_id, event_date_time, fielda, fieldb, fieldc, received_at, record_type, request_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-22 19:08:14.953 INFO  [http-nio-8080-exec-5] c.v.device_api.api.DeviceController - Payload persisted for deviceId=357370040159770 at path=/device
+2026-05-22 19:08:14.955 INFO  [http-nio-8080-exec-5] c.v.device_api.api.DeviceController - Responding 200 deviceId only for path=/device
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:08:15.065 INFO  [http-nio-8080-exec-5] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/device, status=200, authorized=true, durationMs=133
+2026-05-22 19:08:58.262 INFO  [http-nio-8080-exec-6] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/nocontent
+2026-05-22 19:08:58.267 INFO  [http-nio-8080-exec-6] c.v.device_api.api.DeviceController - Received device payload: method=POST, path=/nocontent, deviceId=357370040159770, recordType=xxx
+Hibernate: 
+    insert 
+    into
+        device_events
+        (device_id, event_date_time, fielda, fieldb, fieldc, received_at, record_type, request_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-22 19:08:58.276 INFO  [http-nio-8080-exec-6] c.v.device_api.api.DeviceController - Payload persisted for deviceId=357370040159770 at path=/nocontent
+2026-05-22 19:08:58.277 INFO  [http-nio-8080-exec-6] c.v.device_api.api.DeviceController - Responding 204 for path=/nocontent
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:08:58.279 INFO  [http-nio-8080-exec-6] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/nocontent, status=204, authorized=true, durationMs=17
+2026-05-22 19:09:11.532 INFO  [http-nio-8080-exec-7] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/nocontent
+2026-05-22 19:09:11.536 INFO  [http-nio-8080-exec-7] c.v.device_api.api.DeviceController - Received device payload: method=POST, path=/nocontent, deviceId=357370040159770, recordType=xxx
+Hibernate: 
+    insert 
+    into
+        device_events
+        (device_id, event_date_time, fielda, fieldb, fieldc, received_at, record_type, request_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-22 19:09:11.544 INFO  [http-nio-8080-exec-7] c.v.device_api.api.DeviceController - Payload persisted for deviceId=357370040159770 at path=/nocontent
+2026-05-22 19:09:11.544 INFO  [http-nio-8080-exec-7] c.v.device_api.api.DeviceController - Responding 204 for path=/nocontent
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:09:11.549 INFO  [http-nio-8080-exec-7] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/nocontent, status=204, authorized=true, durationMs=17
+2026-05-22 19:09:44.946 INFO  [http-nio-8080-exec-8] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/anything-else
+2026-05-22 19:09:44.950 INFO  [http-nio-8080-exec-8] c.v.device_api.api.DeviceController - Received device payload: method=POST, path=/anything-else, deviceId=357370040159770, recordType=xxx
+Hibernate: 
+    insert 
+    into
+        device_events
+        (device_id, event_date_time, fielda, fieldb, fieldc, received_at, record_type, request_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-22 19:09:44.956 INFO  [http-nio-8080-exec-8] c.v.device_api.api.DeviceController - Payload persisted for deviceId=357370040159770 at path=/anything-else
+2026-05-22 19:09:44.957 WARN  [http-nio-8080-exec-8] c.v.device_api.api.DeviceController - Unsupported endpoint path=/anything-else, responding 400
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:09:44.966 INFO  [http-nio-8080-exec-8] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/anything-else, status=400, authorized=true, durationMs=20
+2026-05-22 19:09:50.758 INFO  [http-nio-8080-exec-9] c.v.d.security.TokenAuthFilter - Authorized request: method=POST, path=/anything-else
+2026-05-22 19:09:50.759 INFO  [http-nio-8080-exec-9] c.v.device_api.api.DeviceController - Received device payload: method=POST, path=/anything-else, deviceId=357370040159770, recordType=xxx
+Hibernate: 
+    insert 
+    into
+        device_events
+        (device_id, event_date_time, fielda, fieldb, fieldc, received_at, record_type, request_path) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-05-22 19:09:50.766 INFO  [http-nio-8080-exec-9] c.v.device_api.api.DeviceController - Payload persisted for deviceId=357370040159770 at path=/anything-else
+2026-05-22 19:09:50.766 WARN  [http-nio-8080-exec-9] c.v.device_api.api.DeviceController - Unsupported endpoint path=/anything-else, responding 400
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:09:50.772 INFO  [http-nio-8080-exec-9] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/anything-else, status=400, authorized=true, durationMs=15
+2026-05-22 19:11:08.919 WARN  [http-nio-8080-exec-2] c.v.d.security.TokenAuthFilter - Unauthorized request: method=POST, path=/echo, reason=missing_or_malformed_header
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:11:08.953 INFO  [http-nio-8080-exec-2] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=401, authorized=false, durationMs=34
+2026-05-22 19:11:20.156 WARN  [http-nio-8080-exec-3] c.v.d.security.TokenAuthFilter - Unauthorized request: method=POST, path=/echo, reason=missing_or_malformed_header
+Hibernate: 
+    insert 
+    into
+        request_audits
+        (authorized, created_at, method, path, request_body, status_code) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-05-22 19:11:20.169 INFO  [http-nio-8080-exec-3] c.v.d.audit.RequestAuditFilter - Audit saved: method=POST, path=/echo, status=401, authorized=false, durationMs=13
+2026-05-22 19:51:04.044 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m35s511ms554µs100ns).
+2026-05-23 07:35:24.904 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10h32m50s695ms558µs).
+2026-05-23 09:29:36.710 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h54m14s864ms573µs700ns).
+2026-05-23 09:31:28.379 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@d038008 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2026-05-23 09:45:53.067 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m16s9ms480µs600ns).
+2026-05-23 19:01:26.075 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h15m34s672ms806µs).
+2026-05-23 20:49:24.768 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m25s194ms44µs800ns).
+2026-05-23 21:12:33.090 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m8s393ms505µs500ns).
+2026-05-23 21:34:04.209 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=18m1s47ms676µs200ns).
+2026-05-23 22:02:43.336 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m38s768ms731µs100ns).
+2026-05-24 05:35:41.579 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h32m58s249ms949µs100ns).
+2026-05-24 11:22:39.033 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h47m561ms201µs100ns).
+2026-05-24 11:39:13.517 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m4s270ms802µs900ns).
+2026-05-24 12:28:07.099 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m14s230ms864µs800ns).
+2026-05-24 14:03:32.223 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h35m25s103ms103µs500ns).
+2026-05-24 14:45:06.988 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=32m34s438ms27µs500ns).
+2026-05-24 16:46:54.331 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48m34s953ms920µs700ns).
+2026-05-24 17:14:36.967 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m42s648ms143µs100ns).
+2026-05-24 19:17:20.555 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m41s789ms705µs300ns).
+2026-05-24 23:51:18.681 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h5m57s672ms336µs600ns).
+2026-05-25 08:11:57.586 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8h20m38s929ms640µs200ns).
+2026-05-25 08:31:12.969 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m15s22ms823µs).
+2026-05-25 10:42:29.356 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h50m45s978ms625µs100ns).
+2026-05-25 10:59:24.135 WARN  [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m54s462ms702µs300ns).
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2 d 17:00 h
+[INFO] Finished at: 2026-05-25T11:17:07+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.boot:spring-boot-maven-plugin:4.0.6:run (default-cli) on project device-api: Process terminated with exit code: 1 -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

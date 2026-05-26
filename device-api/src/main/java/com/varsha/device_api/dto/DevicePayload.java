@@ -1,4 +1,4 @@
-package com.varsha.device_api.api;
+package com.varsha.device_api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;

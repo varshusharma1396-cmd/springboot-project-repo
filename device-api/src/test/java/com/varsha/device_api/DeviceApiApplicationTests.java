@@ -1,16 +1,16 @@
 package com.varsha.device_api;
 
 import com.varsha.device_api.audit.RequestAuditRepository;
-import com.varsha.device_api.device.DeviceEventRepository;
+import com.varsha.device_api.repository.DeviceEventRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -102,13 +102,24 @@ class DeviceApiApplicationTests {
 	}
 
 	@Test
+	void suffixNoContentEndpointReturns204() throws Exception {
+		mockMvc.perform(post("/abc/nocontent")
+						.contentType(MediaType.APPLICATION_JSON)
+						.header(HttpHeaders.AUTHORIZATION, TOKEN)
+						.content(SAMPLE_PAYLOAD))
+				.andExpect(status().isNoContent());
+		assertEquals(1, deviceEventRepository.count());
+		assertEquals(1, requestAuditRepository.count());
+	}
+
+	@Test
 	void unsupportedEndpointReturns400() throws Exception {
 		mockMvc.perform(post("/unknown")
 						.contentType(MediaType.APPLICATION_JSON)
 						.header(HttpHeaders.AUTHORIZATION, TOKEN)
 						.content(SAMPLE_PAYLOAD))
 				.andExpect(status().isBadRequest());
-		assertEquals(1, deviceEventRepository.count());
+		assertEquals(0, deviceEventRepository.count());
 		assertEquals(1, requestAuditRepository.count());
 	}
 
@@ -132,6 +143,30 @@ class DeviceApiApplicationTests {
 				.andExpect(jsonPath("$.error").value("Validation failed"));
 		assertEquals(0, deviceEventRepository.count());
 		assertEquals(1, requestAuditRepository.count());
+	}
+
+	@Test
+	void sameDeviceIdShouldCreateNewRecordEachTime() throws Exception {
+		mockMvc.perform(post("/echo")
+						.contentType(MediaType.APPLICATION_JSON)
+						.header(HttpHeaders.AUTHORIZATION, TOKEN)
+						.content(SAMPLE_PAYLOAD))
+				.andExpect(status().isOk());
+
+		mockMvc.perform(post("/device")
+						.contentType(MediaType.APPLICATION_JSON)
+						.header(HttpHeaders.AUTHORIZATION, TOKEN)
+						.content(SAMPLE_PAYLOAD))
+				.andExpect(status().isOk());
+
+		assertEquals(2, deviceEventRepository.count());
+		assertEquals(2, requestAuditRepository.count());
+	}
+
+	@Test
+	void publicPatternEndpointShouldNotRequireToken() throws Exception {
+		mockMvc.perform(post("/device/abc/status"))
+				.andExpect(status().isBadRequest());
 	}
 
 }

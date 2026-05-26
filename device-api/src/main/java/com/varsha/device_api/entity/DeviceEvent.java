@@ -1,6 +1,6 @@
-package com.varsha.device_api.device;
+package com.varsha.device_api.entity;
 
-import com.varsha.device_api.api.DevicePayload;
+import com.varsha.device_api.dto.DevicePayload;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -43,17 +43,14 @@ public class DeviceEvent {
     @Column(nullable = false)
     private Instant receivedAt;
 
-    public static DeviceEvent fromPayload(DevicePayload payload, String path, Instant now) {
-        DeviceEvent event = new DeviceEvent();
-        event.setRecordType(payload.getRecordType());
-        event.setDeviceId(payload.getDeviceId());
-        event.setEventDateTime(payload.getEventDateTime());
-        event.setFieldA(payload.getFieldA());
-        event.setFieldB(payload.getFieldB());
-        event.setFieldC(payload.getFieldC());
-        event.setRequestPath(path);
-        event.setReceivedAt(now);
-        return event;
+    public void applyPayload(DevicePayload payload, String path) {
+        setRecordType(payload.getRecordType());
+        setDeviceId(payload.getDeviceId());
+        setEventDateTime(payload.getEventDateTime());
+        setFieldA(payload.getFieldA());
+        setFieldB(payload.getFieldB());
+        setFieldC(payload.getFieldC());
+        setRequestPath(path);
     }
 
     public Long getId() {
@@ -127,4 +124,5 @@ public class DeviceEvent {
     public void setReceivedAt(Instant receivedAt) {
         this.receivedAt = receivedAt;
     }
+
 }
